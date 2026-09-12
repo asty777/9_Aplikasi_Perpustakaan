@@ -32,4 +32,13 @@ public class Buku {
     public GenreBuku getGenre() {
         return genre;
     }
+
+    public String getStatus() {
+        return "Dapat dipinjam";
+    }
+
+    public void pinjam() {
+        System.out.println("Buku dapat dipinjam.");
+    }
+    
 }

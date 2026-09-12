@@ -12,12 +12,27 @@ public class Member {
         this.email = email;
         this.bukuDipinjam = new ArrayList<>();
     }
-
+    
     public void pinjamBuku(Buku buku) {
-        bukuDipinjam.add(buku);
-        System.out.println(nama + " meminjam buku: " + buku.getJudul());
-    }
 
+        if (buku instanceof BukuTidakDapatDipinjam) {
+            System.out.println("[DITOLAK] " + nama + " tidak dapat meminjam buku \""
+                    + buku.getJudul() + "\".");
+            System.out.println("          - Buku hanya dapat dibaca di perpustakaan.");
+            return;
+        }
+
+        bukuDipinjam.add(buku);
+
+        System.out.println("[BERHASIL] " + nama + " berhasil meminjam: "
+                + buku.getJudul());
+
+        if (buku instanceof BukuDapatDipinjam) {
+            BukuDapatDipinjam bukuPinjam = (BukuDapatDipinjam) buku;
+            System.out.println("          - Durasi peminjaman: "
+                    + bukuPinjam.getLamaPeminjaman() + " hari");
+        }
+    }
     public void tampilkanBuku() {
         System.out.println("\n===== BUKU YANG DIPINJAM =====");
         System.out.println("Member: " + nama);

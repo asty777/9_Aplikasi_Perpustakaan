@@ -6,30 +6,35 @@ public class Main {
         GenreBuku teknologi = new GenreBuku(2, "Teknologi");
         GenreBuku sejarah = new GenreBuku(3, "Sejarah");
 
-        // tambah Buku
-        Buku buku1 = new Buku(
-            101,
-            "Laskar Pelangi",
-            "Andrea Hirata",
-            2005,
-            novel
-        );
 
-        Buku buku2 = new Buku(
-            102,
-            "Belajar Java",
-            "Budi Santoso",
-            2024,
-            teknologi
-        );
+    // buku tidak dapat dipinjam
+    BukuTidakDapatDipinjam buku1 = new BukuTidakDapatDipinjam(
+        101,
+        "Ensiklopedia Indonesia",
+        "Tim Ensiklopedia",
+        2020,
+        sejarah,
+        "Rak A1"
+    );
 
-        Buku buku3 = new Buku(
-            103,
-            "Sejarah Indonesia",
-            "Ahmad Fauzi",
-            2022,
-            sejarah
-        );
+    // buku yang dapat dipinjam
+    BukuDapatDipinjam buku2 = new BukuDapatDipinjam(
+        102,
+        "Belajar Java",
+        "Budi Santoso",
+        2024,
+        teknologi,
+        7
+    );
+
+    BukuDapatDipinjam buku3 = new BukuDapatDipinjam(
+        103,
+        "Laskar Pelangi",
+        "Andrea Hirata",
+        2005,
+        novel,
+        14
+    );
 
         // tambah Member
         Member member1 = new Member(
@@ -52,6 +57,7 @@ public class Main {
         System.out.println("Penulis     : " + buku1.getPenulis());
         System.out.println("Tahun Terbit: " + buku1.getTahunTerbit());
         System.out.println("Genre       : " + buku1.getGenre().getNamaGenre());
+        System.out.println("Status      : " + buku1.getStatus());
 
         System.out.println();
 
@@ -60,6 +66,8 @@ public class Main {
         System.out.println("Penulis     : " + buku2.getPenulis());
         System.out.println("Tahun Terbit: " + buku2.getTahunTerbit());
         System.out.println("Genre       : " + buku2.getGenre().getNamaGenre());
+        System.out.println("Genre       : " + buku2.getGenre().getNamaGenre());
+        System.out.println("Status      : " + buku2.getStatus());
 
         System.out.println();
 
@@ -68,6 +76,7 @@ public class Main {
         System.out.println("Penulis     : " + buku3.getPenulis());
         System.out.println("Tahun Terbit: " + buku3.getTahunTerbit());
         System.out.println("Genre       : " + buku3.getGenre().getNamaGenre());
+        System.out.println("Status      : " + buku3.getStatus());
 
         // meminjam buku
         System.out.println("\n===== PEMINJAMAN BUKU =====");
