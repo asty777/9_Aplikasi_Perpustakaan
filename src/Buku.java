@@ -1,16 +1,18 @@
-public class Buku {
+public abstract class Buku {
     private int idBuku;
     private String judul;
     private String penulis;
     private int tahunTerbit;
     private GenreBuku genre;
+    private int stok;
 
-    public Buku(int idBuku, String judul, String penulis, int tahunTerbit, GenreBuku genre) {
+    public Buku(int idBuku, String judul, String penulis, int tahunTerbit, GenreBuku genre, int stok) {
         this.idBuku = idBuku;
         this.judul = judul;
         this.penulis = penulis;
         this.tahunTerbit = tahunTerbit;
         this.genre = genre;
+        this.stok = stok;
     }
 
     public int getIdBuku() {
@@ -33,12 +35,22 @@ public class Buku {
         return genre;
     }
 
-    public String getStatus() {
-        return "Dapat dipinjam";
+    public int getStok() {
+        return stok;
     }
 
-    public void pinjam() {
-        System.out.println("Buku dapat dipinjam.");
+    public void kurangiStok() {
+        if (stok > 0) {
+            stok--;
+        }
     }
+
+    public void tambahStok() {
+        stok++;
+    }
+
+    public abstract String getStatus();
+
+    public abstract void pinjam();
     
 }

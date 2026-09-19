@@ -1,12 +1,20 @@
-public class BukuDapatDipinjam extends Buku {
+public class BukuDapatDipinjam extends Buku implements DapatDipinjam {
 
     private int lamaPeminjaman;
 
-    public BukuDapatDipinjam(int idBuku, String judul, String penulis, int tahunTerbit, GenreBuku genre, int lamaPeminjaman) {
-        super(idBuku, judul, penulis, tahunTerbit, genre);
+    public BukuDapatDipinjam(
+        int idBuku,
+        String judul,
+        String penulis,
+        int tahunTerbit,
+        GenreBuku genre,
+        int stok,
+        int lamaPeminjaman) {
+
+        super(idBuku, judul, penulis, tahunTerbit, genre, stok);
         this.lamaPeminjaman = lamaPeminjaman;
     }
-
+    @Override
     public int getLamaPeminjaman() {
         return lamaPeminjaman;
     }

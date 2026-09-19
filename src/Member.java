@@ -22,7 +22,14 @@ public class Member {
             return;
         }
 
+        if (buku.getStok() <= 0) {
+            System.out.println("[DITOLAK] Stok buku \"" +
+                    buku.getJudul() + "\" habis.");
+            return;
+        }
+
         bukuDipinjam.add(buku);
+        buku.kurangiStok();
 
         System.out.println("[BERHASIL] " + nama + " berhasil meminjam: "
                 + buku.getJudul());
@@ -56,5 +63,9 @@ public class Member {
 
     public String getEmail() {
         return email;
+    }
+
+    public ArrayList<Buku> getBukuDipinjam() {
+        return bukuDipinjam;
     }
 }

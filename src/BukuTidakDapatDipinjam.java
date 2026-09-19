@@ -2,8 +2,16 @@ public class BukuTidakDapatDipinjam extends Buku {
 
     private String lokasiRak;
 
-    public BukuTidakDapatDipinjam(int idBuku, String judul, String penulis, int tahunTerbit, GenreBuku genre, String lokasiRak) {
-        super(idBuku, judul, penulis, tahunTerbit, genre);
+    public BukuTidakDapatDipinjam(
+        int idBuku,
+        String judul,
+        String penulis,
+        int tahunTerbit,
+        GenreBuku genre,
+        int stok,
+        String lokasiRak) {
+
+        super(idBuku, judul, penulis, tahunTerbit, genre, stok);
         this.lokasiRak = lokasiRak;
     }
 
